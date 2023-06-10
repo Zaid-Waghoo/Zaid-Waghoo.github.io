@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Iterative closest point (ICP)</h1>
+									</header>
+
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+
+									<p>The ICP (Iterative Closest Point) algorithm is a widely used technique in the field of computer vision and 3D reconstruction. Its main purpose is to align two or more point clouds by finding the optimal transformation that minimizes the distance between corresponding points in different clouds. The algorithm iteratively refines the transformation by iteratively matching and aligning the closest points between the clouds. Each iteration improves the alignment until convergence is reached. The ICP algorithm is highly effective in scenarios where initial pose estimation is known or can be estimated accurately. It has numerous applications in areas such as robotics, augmented reality, and medical imaging, enabling accurate registration and alignment of 3D data for further analysis and processing.</p>
+									
+									<hr class="major" />
+
+									<h2>How was it done?</h2>
+									
+									<p>The first step involves importing the necessary packages and libraries to enable the implementation of the custom ICP algorithm. These packages provide the essential functionalities for working with point clouds and performing mathematical operations.</p>
+									
+									<p>Following the importation of packages, a custom ICP function is defined. The input arguments for this function are the source and target point clouds. The source point cloud represents the initial state, while the target point cloud is the one that needs alignment with the source.</p>
+
+									<p>Within the ICP function, a homogeneous transformation matrix is defined. This matrix represents the initial transformation applied to the source point cloud. In the absence of a specific initial transformation, an identity matrix can be used, although it may result in slower convergence of the algorithm.</p>
+
+									<p>The alignment of point clouds is achieved by establishing corresponding points between the source and target clouds. The Open3D library provides a KDTree data structure, which facilitates efficient searching for the nearest neighbors. A KDTree is created for the source point cloud, and the correspondences of the target points in the source KDTree are identified. The order of this process is determined by the fact that the target cloud typically has fewer points and a different centroid compared to the source cloud.</p>
+
+									<p>Once the correspondences are established, the new de-meaned destination and source point clouds are computed. These de-meaned point clouds represent the centered versions of the original clouds. Singular Value Decomposition (SVD) is then applied to determine the rotation that best aligns the two point clouds.</p>
+
+									<p>Using the rotation obtained from SVD, the translation between the point clouds is calculated. This translation, along with the rotation, is used to derive a homogeneous transformation matrix. This matrix describes the overall transformation required for aligning the source and target clouds.</p>
+
+									<p>Finally, the obtained transformation matrix is applied to the source point cloud, resulting in its transformation to align with the target cloud. Additionally, the cost of the alignment is computed, providing an indication of the quality of the alignment. The cost can be calculated using either the correspondences or the de-meaned points, depending on the specific implementation.</p>
+
+									<img src="images\Ransac\Ransac_1.png" alt="Ransac" style="max-width: 100%; height: auto;">
+
+									<hr class="major" />
+
+									<h2>Magna etiam veroeros</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+							<nav id="menu">
+								<header class="major">
+									<h2>Menu</h2>
+								</header>
+								<ul>
+									<li><a href="index.html">Homepage</a></li>
+									<li><a href="generic.html">Generic</a></li>
+									<li><a href="elements.html">Elements</a></li>
+									<li>
+										<span class="opener">Projects</span>
+										<ul>
+											<li><a href="Virtual reality game for upper arm range of motion evaluation and rehabilitation using Capability maps.html">Virtual reality game for upper arm range of motion evaluation and rehabilitation using Capability maps</a></li>
+											<li><a href="One shot full body texture completion.html">One shot full body texture completion</a></li>
+											<li><a href="Inverted pendulum simulation using Q-learning algorithm.html">Inverted pendulum simulation using Q-learning algorithm</a></li>
+											<li><a href="Control of a 2D quadrotor using an iLQR algorithm.html">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="Autonomous delivery robot.html">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">zw3374@nyu.edu</a></li>
+										<li class="icon solid fa-phone">+1 551 229 2791</li>
+										<li class="icon solid fa-home">Jersey City, New Jersey<br /></li>
+									</ul>
+								</section>
+
+						
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Random sample consensus (RANSAC)</h1>
+									</header>
+
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+
+									<p>The RANSAC (Random Sample Consensus) algorithm is a robust and widely used method for fitting models to data contaminated with outliers. Its key strength lies in its ability to handle datasets that contain a significant amount of noise or outliers. The algorithm operates by iteratively selecting random subsets of data points, fitting a model to each subset, and then evaluating the quality of the model by counting the number of inliers, which are points that fit the model well.</p>
+									
+									<hr class="major" />
+
+									<h2>How was it done?</h2>
+									
+									<p>To start, the necessary packages and libraries required for the algorithm's implementation are imported. These packages and libraries provide the tools and functions needed to work effectively with the point cloud data.</p>
+									
+									<p>Next, the RANSAC function is defined, which is the core of the algorithm. The point cloud data is taken as a numpy array, along with the initial number of iterations (N) and the threshold criteria for inlier point selection. The inlier points are determined based on their distance from a fitted plane, as specified by the threshold criteria.</p>
+
+									<p>Within the RANSAC function, three points are randomly selected from the entire point cloud to create an initial plane. The orthogonal distance between this plane and each point in the point cloud is then calculated. Points that fall below the specified threshold are considered inliers and their indexes are added to a list.</p>
+
+									<p>After processing all the points in the point cloud, a list of indexes representing the inlier points is obtained. These inlier points correspond to the best fitting plane within the point cloud.</p>
+
+									<p>To improve the algorithm, an adaptive sampling approach is implemented. This approach calculates the number of iterations (N) based on the outlier ratio and the desired probability (p) of obtaining at least one successful sample. The sample count starts at zero and increments by one in each iteration. The algorithm continues to run in a while loop until the value of N becomes smaller than the sample count, indicating the likely discovery of the best fitting plane.</p>
+
+									<p>In this case, a sample size of three points (s) is used, and the probability of at least one successful sample (p) is set to 0.99. These parameter values ensure a high likelihood of accurately identifying the best fitting plane within the point cloud.</p>
+
+									<p>By employing this custom RANSAC algorithm, efficient analysis of point cloud data and identification of planes can be achieved. This algorithm finds applications in various fields such as computer vision, robotics, and 3D reconstruction.</p>
+									
+									<img src="images\Ransac\Ransac_1.png" alt="Ransac" style="max-width: 100%; height: auto;">
+
+									<hr class="major" />
+
+									<h2>Magna etiam veroeros</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+							<nav id="menu">
+								<header class="major">
+									<h2>Menu</h2>
+								</header>
+								<ul>
+									<li><a href="index.html">Homepage</a></li>
+									<li><a href="generic.html">Generic</a></li>
+									<li><a href="elements.html">Elements</a></li>
+									<li>
+										<span class="opener">Projects</span>
+										<ul>
+											<li><a href="Virtual reality game for upper arm range of motion evaluation and rehabilitation using Capability maps.html">Virtual reality game for upper arm range of motion evaluation and rehabilitation using Capability maps</a></li>
+											<li><a href="One shot full body texture completion.html">One shot full body texture completion</a></li>
+											<li><a href="Inverted pendulum simulation using Q-learning algorithm.html">Inverted pendulum simulation using Q-learning algorithm</a></li>
+											<li><a href="Control of a 2D quadrotor using an iLQR algorithm.html">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="Autonomous delivery robot.html">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">zw3374@nyu.edu</a></li>
+										<li class="icon solid fa-phone">+1 551 229 2791</li>
+										<li class="icon solid fa-home">Jersey City, New Jersey<br /></li>
+									</ul>
+								</section>
+
+						
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
