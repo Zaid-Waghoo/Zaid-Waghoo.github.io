@@ -40,19 +40,22 @@
 
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
 
-									<p>Physical therapy interventions are essential for improving the range of motion (ROM) in individuals with upper arm impairments. However, traditional approaches often lack interactivity and fail to keep patients motivated, resulting in sub-optimal outcomes. To address this, I leveraged the power of virtual reality (VR) technology in healthcare. By combining VR with motion tracking technology, I developed an interactive game that provides users with a virtual environment to perform a variety of arm movements and exercises. This immersive and engaging experience enhances patient motivation and offers a promising tool for effective rehabilitation.</p>
-									<p>The primary objectives of this research project were two-fold:</p>
+									<p style="text-align: justify;">Physical therapy interventions are <b>essential</b> for improving the <b>range of motion (ROM)</b> in individuals with <b>limited arm mobility</b>. However, traditional approaches often lack interactivity and fail to keep patients motivated, resulting in sub-optimal outcomes. To address this issue, the power of <b>virtual reality (VR)</b> technology was harnessed in the healthcare domain. By combining motion tracking technology with VR, an interactive game was developed, offering users a virtual environment for the performance of various arm movements and exercises. With an <b>immersive and engaging</b> experience, patient motivation is enhanced, presenting a promising tool for effective rehabilitation.</p>
+									
+									<p style="text-align: justify;">The research project had two primary objectives:</p>
+									
 									<ul>
-										<li>To evaluate users' range of motion (ROM) in 3D space using capability maps.</li>
-										<li>To utilize the information from these capability maps to create a virtual reality (VR) game that aids in upper arm rehabilitation.</li>
+										<li>The <b>evaluation</b> of users' range of motion (ROM) in 3D space using <b>capability maps</b>.</li>
+										<li>The utilization of information from these <b>capability maps</b> to create a virtual reality (VR) game supporting upper arm rehabilitation.</li>
 									</ul>
-									<p>The VR game was designed to offer an engaging experience during repetitive exercises, thereby encouraging compliance and adherence to therapy.</p>
-									<p>One of my key projects focuses on developing an engaging and personalized virtual reality (VR) game for ROM assessment and rehabilitation. The main goal is to provide individuals with an enjoyable and motivating experience while tracking their arm movements in real-time. The system generates capability maps that visually represent the individual's reachability and functional limitations, enhancing their rehabilitation journey.</p>
+									
+									<p style="text-align: justify;">The VR game was designed to provide an <b>engaging</b> experience during repetitive exercises, promoting <b>compliance</b> and <b>adherence</b> to therapy.</p>
+									<p>A key project focuses on the development of an engaging and personalized <b>virtual reality (VR)</b> game for <b>ROM assessment</b> and <b>rehabilitation</b>. The primary goal is to offer individuals an enjoyable and motivating experience while their arm movements are <b>tracked in real-time</b>. The system generates <b>capability maps</b> that visually represent the reachability and functional limitations of the individual, <b>enhancing</b> their rehabilitation journey.</p>
 									<hr class="major" />
 
 									<h2>How was it done?</h2>
 									<h3>Kinematic modeling of the human arm</h3>
-									<p>In my project, I needed to model the complexities of the human arm as a kinematic model. By simplifying it into a 7 degree-of-freedom (DoF) model, I was able to analyze its movements in a comprehensive manner. The shoulder complex, specifically the gleno-humeral joint, contributed 3 DoFs: abduction-adduction, flexion-extension, and internal-external rotation. The elbow joint involved flexion-extension and forearm pronation-supination, while the wrist encompassed ulnar-radial deviation, flexion-extension, and a shared degree of freedom with the elbow. By developing a rigid body tree model, I accurately represented the upper arm and forearm, incorporating volumetric collision meshes for precise collision detection.</p>
+									<p style="text-align: justify;">In the project, the complexities of the human arm were required to be modeled as a kinematic model. By simplifying it into a <b>7 degree-of-freedom (DoF)</b> model, a comprehensive analysis of its movements was made possible. The <b>gleno-humeral joint</b> within the <b>shoulder complex contributed 3 DoFs</b>, namely <b>abduction-adduction, flexion-extension, and internal-external rotation</b>. The <b>elbow joint</b> involved <b>flexion-extension</b> and <b>forearm pronation-supination</b>, while the <b>wrist</b> encompassed <b>ulnar-radial deviation, flexion-extension</b>, and a <b>shared degree of freedom with the elbow</b>. A <b>rigid body tree model</b> was developed to accurately represent the <b>upper arm and forearm</b>, incorporating volumetric collision meshes for precise <b>collision detection.</b></p>
 									
 									<div style="display: flex;">
 										<img src="images\Kinematic Models\Human Arm without Collision Mesh - 1 .png" alt="Human arm without Mesh" style="width: 50%;">
@@ -60,12 +63,16 @@
 									</div>
 
 									<h3>Generation of capability maps for the human arm</h3>
-									<p>I have explored the use of capability maps as a powerful tool for analyzing the workspace of a robotic arm. These maps provide insights into the reachability and limitations of the robot's end-effector in various positions and orientations.</p>
-									<p>The generation of capability maps involves two primary methods. The first method utilizes inverse kinematics (IK) to determine the reachability of each bin within the workspace. By searching for valid joint values that correspond to the desired pose of the end-effector, reachable bins are marked. However, this approach comes with computational costs and may not always find a solution, even if one exists.</p>
-									<p>The second method employs a forward kinematics (FK) approach, where random joint values are used to create transformation matrices, resulting in the end-effector's pose. Bins where the end-effector successfully reaches are marked as reachable. Although this method generates a larger number of samples, it does not guarantee a complete exploration of the robot's workspace.</p>
-									<p>To achieve a more comprehensive capability map analysis, a hybrid approach combining FK and IK methods can be employed. This approach initially utilizes the faster exploration capabilities of FK. However, in cases where unique bins are challenging to find, the IK method is applied for a more precise analysis. This hybrid approach combines the speed and broader coverage of FK with the accuracy and completeness of IK, enhancing the capability map analysis for the robotic arm.</p>
-									<p>In one of my key projects, I utilized capability maps as a visualization tool to assess an individual's range of motion and dexterity. I developed capability maps for both average healthy individuals and those with limited range of motion, allowing for a comparative analysis. By simulating restricted movement using braces, I documented the minimum and maximum range of motion for each degree of freedom in the arm.</p>
-									<p>Using the hybrid approach, I developed capability maps for:</p>
+									
+									<p style="text-align: justify;">The use of <b>capability maps</b> as a powerful tool for <b>analyzing the workspace</b> of a robotic arm has been explored. Insights into the reachability and limitations of the robot's end-effector in various positions and orientations are provided by these maps.</p>
+									
+									<p style="text-align: justify;">The generation of capability maps involves <b>two primary methods.</b> The reachability of each bin within the workspace is determined using <b>inverse kinematics (IK).</b> Reachable bins are marked by searching for valid joint values that correspond to the desired pose of the <b>end-effector.</b> However, a solution may not always be found, even if one exists, and computational costs are associated with this approach.</p>
+									
+									<p style="text-align: justify;">TA forward kinematics (FK) approach is used in the second method, where transformation matrices are created using random joint values to determine the pose of the end-effector. Reachable bins are marked based on successful end-effector reach. Although this method generates a larger number of samples, it does not guarantee a complete exploration of the robot's workspace.</p>
+									
+									<p style="text-align: justify;">To achieve a more comprehensive capability map analysis, a hybrid approach combining FK and IK methods can be employed. The faster exploration capabilities of FK are initially utilized, while the more precise analysis provided by the IK method is applied in cases where unique bins are challenging to find. This hybrid approach combines the speed and broader coverage of FK with the accuracy and completeness of IK, enhancing the capability map analysis for the robotic arm.</p>
+									<p style="text-align: justify;">In one of the key projects, capability maps were utilized as a visualization tool to assess an individual's range of motion and dexterity. Capability maps were developed for both average healthy individuals and those with limited range of motion, enabling comparative analysis. The minimum and maximum range of motion for each degree of freedom in the arm were documented by simulating restricted movement using braces.</p>
+									<p style="text-align: justify;">Using the hybrid approach, I developed capability maps for:</p>
 									<ul>
 										<li>Healthy individuals</li>
 										<img src="images\Capability Maps\Healthy Capability Map.png" alt="Healthy Map" style="max-width: 100%; height: auto;">
@@ -78,25 +85,25 @@
 									</ul>
 
 									
-									<p>Additionally, I introduced a distinctive capability map called the "difference capability map." This map illustrates the disparities between the capability map of a healthy individual and those with limited range of motion. By visually depicting and analyzing the variations in range of motion and dexterity between the two groups, the difference capability map served as a valuable tool for identifying specific areas of limitations and challenges for individuals with reduced range of motion. These insights have contributed to the development of tailored rehabilitation strategies and interventions, enhancing our understanding of the impact of limited range of motion on joint functionality.</p>
+									<p style="text-align: justify;">Additionally, a distinctive capability map called the "difference capability map" was introduced. The "difference capability map" was utilized to illustrate the disparities between the capability map of a healthy individual and those with a limited range of motion. By visually depicting and analyzing the variations in range of motion and dexterity between the two groups, the difference capability map was utilized as a valuable tool for identifying specific areas of limitations and challenges for individuals with reduced range of motion. The development of tailored rehabilitation strategies and interventions has been enhanced through the insights provided by the difference capability map, contributing to our understanding of the impact of limited range of motion on joint functionality.</p>
 
 									<img src="images\Capability Maps\Restricted Shoulder Difference Capability Map - 1.png" alt="Healthy Map" style="max-width: 100%; height: auto;">
 
 									<h3>Development of the virtual reality game</h3>
-									<p>I focused on real-time tracking of joint movements in a 3D space to create an immersive VR game. To achieve this, I utilized the Kinect v2 sensor, which tracked the pose of 25 joints in the human body at a rate of 30 frames per second. By integrating the Kinect sensor with the Unity game engine using the "Kinect v2 examples" SDK, I ensured accurate and up-to-date joint pose data. This data was crucial for transforming and updating the capability map based on the individual's movements.</p>
-									<p>For precise hand tracking, I integrated the Leap Motion camera with the Kinect. While the Kinect tracked body joints, it lacked hand and finger tracking capabilities. By mounting the Leap Motion camera on the VR headset, I captured accurate hand movements. However, aligning the wrist joint tracking data between the two sensors posed a challenge. To overcome this, I adopted a hybrid approach. The Kinect was responsible for positional tracking of the wrist, providing accurate positioning information, while the Leap Motion camera handled rotation tracking, offering precise rotational data.</p>
-									<p>To track head movements, I utilized the Kinect for position tracking in 3D space, while the VR headset's pose drivers were used to track head rotation. By combining the strengths of both sensors and assigning specific tracking responsibilities, I achieved synchronized and accurate tracking of joint movements, including hands and head, which greatly enhanced the overall gameplay experience.</p>
-									<p>In terms of methodology, I developed a virtual reality (VR) game using Unity for upper arm range of motion (ROM) evaluation and rehabilitation. The game's core concept revolved around the use of capability maps to generate and manipulate virtual objects based on the user's position and reachability indexes.</p>
-									<p>Within the VR environment, the capability maps were generated by analyzing the user's arm movements and limitations. Real-time arm motion tracking technology, such as the Kinect sensor, was employed to capture the user's movements. The captured data was processed and mapped onto a virtual representation of the user's arm within the game environment.</p>
-									<p>Based on the capability maps, virtual objects were dynamically spawned in the game space. The position and reachability indexes derived from the capability maps determined the appropriate location and interaction possibilities of these virtual objects. This dynamic spawning of objects allowed for personalized rehabilitation exercises tailored to the individual's ROM and functional limitations.</p>
-									<p>During gameplay, users were guided to interact repeatedly with each virtual object, simulating the repetitive movements typically performed in physical therapy. This approach aimed to replicate the therapeutic effect of repeated motions, which help improve the user's range of motion. The game provided real-time feedback on the user's performance, including metrics such as the range of motion. This feedback not only helped users track their progress but also facilitated the adaptation of the game's difficulty level and exercises based on their capabilities.</p>
-									<hr class="major" />
+									<p style="text-align: justify;">The real-time tracking of joint movements in a 3D space to create an immersive VR game was the main focus. The utilization of the Kinect v2 sensor, which tracked the pose of 25 joints in the human body at a rate of 30 frames per second, played a crucial role. Accurate and up-to-date joint pose data was ensured by integrating the Kinect sensor with the Unity game engine using the "Kinect v2 examples" SDK. The capability map was transformed and updated based on the individual's movements using this essential data.</p>
 
-									<h2>Magna etiam veroeros</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+									<p style="text-align: justify;">For precise hand tracking, integration of the Leap Motion camera with the Kinect was performed. Hand and finger tracking capabilities were lacking in the Kinect, but accurate hand movements were captured by mounting the Leap Motion camera on the VR headset. Aligning the wrist joint tracking data between the two sensors posed a challenge, which led to the adoption of a hybrid approach. Positional tracking of the wrist was accomplished by the Kinect, providing accurate positioning information, while rotation tracking was handled by the Leap Motion camera, offering precise rotational data.</p>
 
-									
+									<p style="text-align: justify;">Head movements were tracked using the Kinect for position tracking in 3D space, while head rotation was tracked using the VR headset's pose drivers. The combination of both sensors and the assignment of specific tracking responsibilities resulted in synchronized and accurate tracking of joint movements, including hands and head, significantly enhancing the overall gameplay experience.</p>
+
+									<p style="text-align: justify;">The methodology involved the development of a virtual reality (VR) game using Unity for the evaluation and rehabilitation of upper arm range of motion (ROM). The game's core concept revolved around the generation and manipulation of virtual objects based on the user's position and reachability indexes, achieved through the utilization of capability maps.</p>
+
+									<p style="text-align: justify;">Within the VR environment, the capability maps were generated by analyzing the user's arm movements and limitations. Real-time arm motion tracking technology, such as the Kinect sensor, was employed for capturing the user's movements. The captured data was processed and mapped onto a virtual representation of the user's arm within the game environment.</p>
+
+									<p style="text-align: justify;">Virtual objects were dynamically spawned in the game space based on the capability maps. The appropriate location and interaction possibilities of these virtual objects were determined using the position and reachability indexes derived from the capability maps. This dynamic spawning facilitated personalized rehabilitation exercises tailored to the individual's ROM and functional limitations.</p>
+
+									<p style="text-align: justify;">During gameplay, users were guided to interact repeatedly with each virtual object, simulating the repetitive movements typically performed in physical therapy. This approach aimed to replicate the therapeutic effect of repeated motions, leading to an improvement in the user's range of motion. Real-time feedback, including metrics such as the range of motion, was provided to users, enabling them to track their progress. Additionally, the game's difficulty level and exercises could be adapted based on the user's capabilities.</p>
+
 								</section>
 
 						</div>
@@ -127,12 +134,14 @@
 										<ul>
 											<li><a href="Virtual reality game for upper arm range of motion evaluation and rehabilitation using Capability maps.html">Virtual reality game for upper arm range of motion evaluation and rehabilitation using Capability maps</a></li>
 											<li><a href="One shot full body texture completion.html">One shot full body texture completion</a></li>
+											<li><a href="Ransac.html">Random sample consensus (RANSAC) </a></li>
+											<li><a href="ICP.html">Iterative closest point (ICP)</a></li>
+											<li><a href="FashionMNIST">Low dimension projection of the FashionMNIST dataset using TensorFlow </a></li>
+											<li><a href="ORB.html">Feature extraction and matching </a></li>
 											<li><a href="Inverted pendulum simulation using Q-learning algorithm.html">Inverted pendulum simulation using Q-learning algorithm</a></li>
 											<li><a href="Control of a 2D quadrotor using an iLQR algorithm.html">Control of a 2D quadrotor using an iLQR algorithm</a></li>
-											<li><a href="Autonomous delivery robot.html">Control of a 2D quadrotor using an iLQR algorithm</a></li>
-											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
-											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
-											<li><a href="#">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="Autonomous delivery robot.html">Autonomous delivery robot</a></li>
+											<li><a href="Sensor fusion">Sensor Fusion</a></li>
 										</ul>
 									</li>
 								</ul>

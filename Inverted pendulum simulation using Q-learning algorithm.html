@@ -10,6 +10,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  		<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -35,32 +37,67 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Generic</h1>
+										<h1>Inverted pendulum simulation using Q-learning algorithm</h1>
 									</header>
+									
+									<div style="display: flex; justify-content: center;">
+									<video src="videos\Q-learning.mp4" autoplay loop>
+										Your browser does not support the video tag.
+									  </video>
+									</div><br>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									<p style="text-align: justify;">The primary objective of this project is to develop a policy using the Q-learning algorithm for an inverted pendulum model to achieve a swing-up motion. The project aims to not only solve the challenge of inverting a pendulum but also gain a deeper understanding of the workings, limitations, and advantages of Q-learning.</p>
 
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
-
-									<hr class="major" />
-
-									<h2>Interdum sed dapibus</h2>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+									<p style="text-align: justify;">To add an element of interest to the problem, the inverted pendulum is constrained by a maximum torque limit. Consequently, the pendulum must execute several "back and forth" motions to accumulate enough energy and ultimately reach the inverted position.</p>
 
 									<hr class="major" />
 
-									<h2>Magna etiam veroeros</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+									<h2>How was it done?</h2>
+									
+									<p style="text-align: justify "> <b>Cost Function:</b>
+									The cost function plays a crucial role in encoding the desired trajectory for the pendulum. In this case, the cost function is defined as:</p>
+	
+									<p style="text-align: center;">
+										\( g(x_i, u_i) = (\theta - \pi)^2 + 0.01 \cdot \dot{\theta}_i + 0.0001 \cdot u_i^2 \)
+									</p>
 
-									<hr class="major" />
+									<p style="text-align: justify "> It captures the difference between the pendulum angle \((\theta)\) and the desired angle \((\pi)\), as well as the angular velocity \((\dot{\theta}\)) and the input value \((u\)).</p>
 
-									<h2>Lorem aliquam bibendum</h2>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+									<p style="text-align: center;">
+										<img src="images\Q-learning\Learning process.png" alt="Learning Process" style="max-width: 70%; height: auto;">
+									</p>
+
+									<p style="text-align: justify;"><b>Q-Table Dimensions:</b>
+									To represent all possible combinations of states and input values, a Q-table of dimensions (50 x 50 x 3) is required. The two states, \(\theta\) and \(\omega\), are discretized into 50 intervals between [0, 2\(\pi\)] and [-6, 6] respectively. There are three possible input values: \( u = \{-x, 0, x\} \).</p>
+										
+									<p style="text-align: justify;"><b>Optimal Policy and Value Function:</b>
+									The optimal policy for a given combination of states \(\theta\) and \(\omega\) is determined by selecting the input value from the list of possible values \( u ∈ \{-x, 0, x\} \) that corresponds to the least Q-value in the Q-table for that state combination. A separate table of dimensions (50 x 50) can be built to store the optimal policies for each state combination.<br><br>
+									
+									Similarly, the optimal value function for a given combination of states \(\theta\) and \(\omega\) is determined by selecting the minimum Q-value from the Q-table for that state combination. Another table of dimensions (50 x 50) can be constructed to store the optimal values for each state combination.</p>
+										
+									<div style="display: flex;">
+										<img src="images\Q-learning\Value Function.png" alt="Value Function" style="width: 50%;">
+										<img src="images\Q-learning\Optimal Policy.png" alt="Optimal Policy" style="width: 50%;">
+									</div><br>
+
+									<p style="text-align: justify;"><b>Q-Learning Algorithm:</b>
+									The simulation begins by defining the initial state \(x_0\), which is set to the origin. The simulation runs for a fixed number of timesteps, typically 100, which defines a single episode. At each timestep, an action is chosen using an \(\epsilon\)-greedy policy.<br><br>
+									
+									The \(\epsilon\)-greedy policy selects the action with the maximum Q-value (exploitation) with probability 1-\(\epsilon\), and selects a random action (exploration) with probability \(\epsilon\).<br><br>
+									
+									The next state \(x_t + 1\) is computed using the non-linear dynamics of the inverted pendulum system, and the instantaneous cost is evaluated using the defined cost function.<br><br>
+									
+									The Q-value for the current state and action pair is updated using the Q-learning algorithm:<br>
+									
+									<p style="text-align: center;">\(Q\) (\(x_t\), \(u_t\)) = \(Q\) (\(x_t\), \(u_t\)) + \(\gamma\)\(\delta_t\)<br></p>
+									
+									where \(\gamma\) is the discount factor and \(\delta_t\) is the temporal difference error, computed as:<br><br>
+									
+									<p style="text-align: center;">\(\delta_t\) = \(g\) (\(x_t\), \(u_t\)) + \(\alpha\) \(min\) \(Q\) (\(x_t+1\))</p>
+
+									<p style="text-align: center;">
+										<img src="images\Q-learning\Theta and Omega.png" alt="Theta and Omega" style="max-width: 70%; height: auto;">
+									</p>
 
 								</section>
 
@@ -79,64 +116,33 @@
 								</section>
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">Generic</a></li>
-										<li><a href="elements.html">Elements</a></li>
-										<li>
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Etiam Dolore</a></li>
-										<li><a href="#">Adipiscing</a></li>
-										<li>
-											<span class="opener">Another Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Maximus Erat</a></li>
-										<li><a href="#">Sapien Mauris</a></li>
-										<li><a href="#">Amet Lacinia</a></li>
-									</ul>
-								</nav>
+							<nav id="menu">
+								<header class="major">
+									<h2>Menu</h2>
+								</header>
+								<ul>
+									<li><a href="index.html">Homepage</a></li>
+									<li><a href="generic.html">Generic</a></li>
+									<li><a href="elements.html">Elements</a></li>
+									<li>
+										<span class="opener">Projects</span>
+										<ul>
+											<li><a href="Virtual reality game for upper arm range of motion evaluation and rehabilitation using Capability maps.html">Virtual reality game for upper arm range of motion evaluation and rehabilitation using Capability maps</a></li>
+											<li><a href="One shot full body texture completion.html">One shot full body texture completion</a></li>
+											<li><a href="Ransac.html">Random sample consensus (RANSAC) </a></li>
+											<li><a href="ICP.html">Iterative closest point (ICP)</a></li>
+											<li><a href="FashionMNIST">Low dimension projection of the FashionMNIST dataset using TensorFlow </a></li>
+											<li><a href="ORB.html">Feature extraction and matching </a></li>
+											<li><a href="Inverted pendulum simulation using Q-learning algorithm.html">Inverted pendulum simulation using Q-learning algorithm</a></li>
+											<li><a href="Control of a 2D quadrotor using an iLQR algorithm.html">Control of a 2D quadrotor using an iLQR algorithm</a></li>
+											<li><a href="Autonomous delivery robot.html">Autonomous delivery robot</a></li>
+											<li><a href="Sensor fusion">Sensor Fusion</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section>
-
+							
 							<!-- Section -->
 								<section>
 									<header class="major">
