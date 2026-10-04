@@ -7,6 +7,7 @@
   <meta name="description" content="Using normal wireless earphones to check breathing exercises in real time. Research by Zaid Waghoo and colleagues, IEEE EMBC 2024.">
   <link rel="canonical" href="https://zaid-waghoo.github.io/projects/breath-monitoring/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
 
   <meta property="og:type" content="article">
@@ -45,9 +46,9 @@
 
     <main id="main">
       <header>
-        <p class="label">Research · 2024</p>
+        <p class="label marker">Research · 2024</p>
         <h1>Tracking breathing exercises with earphones</h1>
-        <p class="details">
+        <p class="details label">
           IEEE EMBC 2024 ·
           <a href="/papers/wazir-waghoo-kapila-2024-earphone-breathing.pdf">PDF</a> ·
           <a href="https://arxiv.org/abs/2404.10310">arXiv</a> ·
@@ -75,10 +76,12 @@
         </ul>
         <p>That is enough to check an exercise like "in through the nose, out
           through the mouth" as it happens.</p>
-        <div class="placeholder">[PLACEHOLDER: one or two sentences on what you
-          did, e.g. data collection, model training, the real-time app.]</div>
-        <figure class="placeholder">
-          [PLACEHOLDER: photo of the setup or a simple diagram]
+        <figure>
+          <img src="/images/breath-monitoring/system-diagram.jpg" width="1600" height="628"
+            alt="Diagram of the system. Earphone audio is cleaned up and turned into a spectrogram. A channel classifier labels it oral breathing, nasal breathing, or pause. For breathing, a phase classifier then labels it inhale or exhale."
+            loading="lazy">
+          <figcaption>How it works. Audio goes in on the left. The first network picks
+            nose, mouth, or pause. If there is breathing, the second network picks in or out.</figcaption>
         </figure>
       </section>
 
@@ -96,6 +99,13 @@
         <h2>Result</h2>
         <p>Nose vs. mouth vs. pause scored up to 98% (F1). Breathing in vs. out
           scored up to 89%. The paper was published at IEEE EMBC 2024.</p>
+        <figure>
+          <img src="/images/breath-monitoring/spectrogram.jpg" width="1500" height="750"
+            alt="Spectrogram of about eight seconds of breathing recorded by earphones. Bright bands show each breath, separated by dark pauses, with a label under each segment."
+            loading="lazy">
+          <figcaption>Eight seconds of breathing, as the earphones hear it. Each bright
+            block is one breath. The numbers underneath are the labels used for training.</figcaption>
+        </figure>
         <p>It shows that cheap hardware people already have can help with
           therapy at home.</p>
       </section>

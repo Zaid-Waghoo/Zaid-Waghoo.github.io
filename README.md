@@ -9,7 +9,8 @@ GitHub Pages serves the files in this repo as they are.
 | --- | --- |
 | `index.html` | Home page: bio, links, projects, papers |
 | `projects/<name>/index.html` | One page per project, served at `/projects/<name>/` |
-| `css/style.css` | The only stylesheet. Colors are at the top, light and dark |
+| `css/style.css` | The only stylesheet. Fonts and colors are at the top, light and dark |
+| `fonts/` | Hanken Grotesk (text) and JetBrains Mono (labels), self-hosted |
 | `papers/` | PDFs of published papers |
 | `images/` | Images, one folder per project |
 | `favicon.svg` | Browser tab icon |
