@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breath Monitoring with Earphones · Zaid Waghoo</title>
+  <meta name="description" content="Real-time breathing exercise monitoring with wireless earphones and two small neural networks. Published at IEEE EMBC 2024.">
+  <link rel="canonical" href="https://zaid-waghoo.github.io/projects/breath-monitoring/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Breath Monitoring with Earphones · Zaid Waghoo">
+  <meta property="og:description" content="Real-time breathing exercise monitoring with wireless earphones. IEEE EMBC 2024.">
+  <meta property="og:url" content="https://zaid-waghoo.github.io/projects/breath-monitoring/">
+  <meta name="twitter:card" content="summary">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Wireless Earphone-based Real-Time Monitoring of Breathing Exercises: A Deep Learning Approach",
+    "author": [
+      {"@type": "Person", "name": "Hassam Khan Wazir"},
+      {"@type": "Person", "name": "Zaid Waghoo", "url": "https://zaid-waghoo.github.io/"},
+      {"@type": "Person", "name": "Vikram Kapila"}
+    ],
+    "datePublished": "2024",
+    "publisher": "IEEE",
+    "isPartOf": "IEEE Engineering in Medicine and Biology Conference (EMBC) 2024",
+    "sameAs": [
+      "https://arxiv.org/abs/2404.10310",
+      "https://doi.org/10.1109/EMBC53108.2024.10782159"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page">
+    <nav class="site-nav" aria-label="Site">
+      <a href="/">← Zaid Waghoo</a>
+    </nav>
+
+    <main id="main">
+      <header>
+        <p class="label">Research · 2024</p>
+        <h1>Breath monitoring with earphones</h1>
+        <p class="details">
+          Deep learning, audio ·
+          IEEE EMBC 2024 ·
+          <a href="/papers/wazir-waghoo-kapila-2024-earphone-breathing.pdf">PDF</a> ·
+          <a href="https://arxiv.org/abs/2404.10310">arXiv</a> ·
+          <a href="https://doi.org/10.1109/EMBC53108.2024.10782159">IEEE</a>
+        </p>
+        <p class="lede">Can a pair of ordinary wireless earphones tell whether
+          someone is doing their breathing exercises correctly?</p>
+      </header>
+
+      <section class="report-section">
+        <h2>Problem</h2>
+        <p>Deep breathing exercises are part of the treatment for many
+          conditions, including asthma, COPD, high blood pressure, and anxiety.
+          To know if a treatment is working, a care team needs to know if the
+          patient is actually doing the exercises.</p>
+        <p>In a clinic, staff and special equipment can check this. At home,
+          neither is available, so nobody really knows how well the exercises
+          are being done.</p>
+      </section>
+
+      <section class="report-section">
+        <h2>What we built</h2>
+        <p>A system that listens to breathing through the microphones of a pair
+          of wireless earphones and reports, in real time, how the person is
+          breathing. It looks at the audio in half-second pieces and passes each
+          piece to two small convolutional neural networks:</p>
+        <ul>
+          <li>a <strong>channel classifier</strong> that decides if the sound is
+            nose breathing, mouth breathing, or a pause, and</li>
+          <li>a <strong>phase classifier</strong> that decides if it is a breath
+            in or a breath out.</li>
+        </ul>
+        <p>Together they give enough detail to check a breathing exercise step by
+          step, for example "in through the nose, out through the mouth".</p>
+        <div class="placeholder">[PLACEHOLDER: a sentence or two on what you
+          personally did on this project, e.g. data collection, model training,
+          the real-time app.]</div>
+        <figure class="placeholder">
+          [PLACEHOLDER: image of the setup or the system diagram]
+        </figure>
+      </section>
+
+      <section class="report-section">
+        <h2>Why these choices</h2>
+        <p><strong>Earphones.</strong> Many people already own a pair, and they
+          sit close to the nose and mouth. That makes them a practical sensor for
+          home use, with no extra hardware to buy or learn.</p>
+        <p><strong>Half-second windows.</strong> Short pieces of audio keep the
+          delay low enough that feedback feels immediate while someone is doing
+          the exercise.</p>
+        <p><strong>Two networks instead of one.</strong> Nose versus mouth and in
+          versus out are separate questions, so each network can focus on one
+          and be judged on its own.</p>
+        <p><strong>Mel-spectrograms.</strong> We compared two common ways of
+          turning audio into model input. Mel-spectrograms scored higher than
+          MFCCs for both networks, so we used them.</p>
+      </section>
+
+      <section class="report-section">
+        <h2>Result</h2>
+        <p>With k-fold cross-validation, the channel classifier reached a best F1
+          score of 97.99% and the phase classifier reached 89.46%. The work was
+          published at the IEEE Engineering in Medicine and Biology Conference
+          (EMBC) in 2024.</p>
+        <table>
+          <caption class="label">F1 scores (%) by input type</caption>
+          <thead>
+            <tr><th>Network</th><th>Input</th><th class="num">Average</th><th class="num">Best</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Channel</td><td>Mel-spectrogram</td><td class="num">93.98</td><td class="num">97.99</td></tr>
+            <tr><td>Channel</td><td>MFCC</td><td class="num">90.35</td><td class="num">97.50</td></tr>
+            <tr><td>Phase</td><td>Mel-spectrogram</td><td class="num">76.20</td><td class="num">89.46</td></tr>
+            <tr><td>Phase</td><td>MFCC</td><td class="num">75.56</td><td class="num">87.35</td></tr>
+          </tbody>
+        </table>
+        <p>It shows that cheap hardware people already have can support therapy
+          at home. A next step is to combine this audio model with camera-based
+          tracking to follow both movement and breathing exercises.</p>
+      </section>
+
+      <hr>
+
+      <nav class="pager" aria-label="Projects">
+        <a href="/">← All projects</a>
+        <a href="/projects/pdf-editor/">Next: A PDF editor from scratch →</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Zaid Waghoo</p>
+    </footer>
+  </div>
+</body>
+</html>
